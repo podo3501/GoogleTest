@@ -100,14 +100,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CookBook.cpp" />
     <ClCompile Include="Introduction.cpp" />
+    <ClCompile Include="MockClasses.cpp" />
     <ClCompile Include="Testsuite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CookBook.h" />
     <ClInclude Include="Introduction.h" />
+    <ClInclude Include="MockClasses.h" />
     <ClInclude Include="Testsuite.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
