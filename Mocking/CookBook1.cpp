@@ -1,12 +1,40 @@
-#include "CookBook.h"
+#include "CookBook1.h"
 #include <string>
 
 using ::testing::_;
 using ::testing::Invoke;
 using ::testing::AtLeast;
 
-namespace CookBook
+namespace CookBook1
 {
+	class Bar;
+	using Element = int;
+
+	class Foo
+	{
+	public:
+		virtual ~Foo() {};
+		virtual int Add(Element x) = 0;
+		virtual int Add(int times, Element x) = 0;
+
+		virtual Bar& GetBar() = 0;
+		virtual const Bar& GetBar() const = 0;
+
+		virtual void DoThis() = 0;
+	};
+
+	class MockFoo : public Foo
+	{
+	public:
+		MOCK_METHOD(int, Add, (Element x), (override));
+		MOCK_METHOD(int, Add, (int times, Element x), (override));
+
+		MOCK_METHOD(Bar&, GetBar, (), (override));
+		MOCK_METHOD(const Bar&, GetBar, (), (const, override));
+
+		MOCK_METHOD(void, DoThis, (), (override));
+	};
+
 	//일부러 Uninteresting Call 발생시킨다. visual studio의 gui경고에 버그가 있다. 출력에 '테스트' 탭을 보자.
 	//EXPECT_CALL에 메소드를 지정하지 않고 호출할 경우에는 uninteresting call 경고를 출력
 	//나중에 메소드가 추가되어 그것이 테스트를 실패로 만들수 있기 때문에 나중에 만들어진 함수에 대한 '경고'가 필요하다
@@ -60,7 +88,7 @@ namespace CookBook
 			Log(severity, full_filename, std::string(message, message_len));
 		}
 
-		MOCK_METHOD3(Log, void(LogSeverity severity, const std::string& file_path, const std::string& message));
+		MOCK_METHOD(void, Log, (LogSeverity severity, const std::string& file_path, const std::string& message));
 	};
 
 	//////////////////////////////////////////////////////////////////////
@@ -88,8 +116,8 @@ namespace CookBook
 	class MockAoo : public Aoo
 	{
 	public:
-		MOCK_METHOD1(DoThis, char(int n));
-		MOCK_METHOD2(DoThat, void(const char* s, int* p));
+		MOCK_METHOD(char, DoThis, (int n), (override));
+		MOCK_METHOD(void, DoThat, (const char* s, int* p), (override));
 
 		void DelegateToFake()
 		{
@@ -139,8 +167,8 @@ namespace CookBook
 			ON_CALL(*this, DoThat(_, _)).WillByDefault(Invoke(&real_, &Boo::DoThat));
 		}
 
-		MOCK_METHOD1(DoThis, char(int n));
-		MOCK_METHOD2(DoThat, void(const char* s, int* p));
+		MOCK_METHOD(char, DoThis, (int n));
+		MOCK_METHOD(void, DoThat, (const char* s, int* p));
 
 	private:
 		Boo real_;
@@ -177,8 +205,8 @@ namespace CookBook
 	class MockCoo : public Coo
 	{
 	public:
-		MOCK_METHOD1(Pure, void(int n));
-		MOCK_METHOD1(Concrete, int(const char* str));
+		MOCK_METHOD(void, Pure, (int n), (override));
+		MOCK_METHOD(int, Concrete, (const char* str));
 
 		int CooConcrete(const char* str) 
 		{ 

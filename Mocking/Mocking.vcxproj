@@ -100,7 +100,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CookBook.cpp" />
+    <ClCompile Include="CookBook1.cpp" />
+    <ClCompile Include="CookBook2.cpp" />
     <ClCompile Include="Introduction.cpp" />
     <ClCompile Include="MockClasses.cpp" />
     <ClCompile Include="Testsuite.cpp" />
@@ -109,7 +110,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CookBook.h" />
+    <ClInclude Include="CookBook1.h" />
+    <ClInclude Include="CookBook2.h" />
     <ClInclude Include="Introduction.h" />
     <ClInclude Include="MockClasses.h" />
     <ClInclude Include="Testsuite.h" />
