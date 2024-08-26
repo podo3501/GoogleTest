@@ -2,30 +2,33 @@
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 
-class Bar;
-using Element = int;
-
-class Foo
+namespace CookBook
 {
-public:
-	virtual ~Foo() {};
-	virtual int Add(Element x) = 0;
-	virtual int Add(int times, Element x) = 0;
+	class Bar;
+	using Element = int;
 
-	virtual Bar& GetBar() = 0;
-	virtual const Bar& GetBar() const = 0;
+	class Foo
+	{
+	public:
+		virtual ~Foo() {};
+		virtual int Add(Element x) = 0;
+		virtual int Add(int times, Element x) = 0;
 
-	virtual void DoThis() = 0;
-};
+		virtual Bar& GetBar() = 0;
+		virtual const Bar& GetBar() const = 0;
 
-class MockFoo : public Foo
-{
-public:
-	MOCK_METHOD1(Add, int(Element x));
-	MOCK_METHOD2(Add, int(int times, Element x));
+		virtual void DoThis() = 0;
+	};
 
-	MOCK_METHOD0(GetBar, Bar& ());
-	MOCK_CONST_METHOD0(GetBar, const Bar& ());
+	class MockFoo : public Foo
+	{
+	public:
+		MOCK_METHOD1(Add, int(Element x));
+		MOCK_METHOD2(Add, int(int times, Element x));
 
-	MOCK_METHOD0(DoThis, void());
-};
+		MOCK_METHOD0(GetBar, Bar& ());
+		MOCK_CONST_METHOD0(GetBar, const Bar& ());
+
+		MOCK_METHOD0(DoThis, void());
+	};
+}
