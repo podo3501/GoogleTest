@@ -102,6 +102,7 @@
   <ItemGroup>
     <ClCompile Include="CookBook1.cpp" />
     <ClCompile Include="CookBook2.cpp" />
+    <ClCompile Include="CookBook3.cpp" />
     <ClCompile Include="Introduction.cpp" />
     <ClCompile Include="MockClasses.cpp" />
     <ClCompile Include="Testsuite.cpp" />
@@ -112,6 +113,7 @@
   <ItemGroup>
     <ClInclude Include="CookBook1.h" />
     <ClInclude Include="CookBook2.h" />
+    <ClInclude Include="CookBook3.h" />
     <ClInclude Include="Introduction.h" />
     <ClInclude Include="MockClasses.h" />
     <ClInclude Include="Testsuite.h" />
