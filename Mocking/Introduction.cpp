@@ -84,7 +84,7 @@ namespace Introduction
 
 		m_turtle.Forward(10);	//ok
 		m_turtle.Forward(10);	//ok
-		m_turtle.Forward(20);	//EXPECT_CALL(turtle, Forward(10)).Times(2); 여기서는 문제이지만 위에 EXPECT문장에서 ok
+		m_turtle.Forward(20);	// Forward(_)문장에서 아무 인수나 가능하니까 ok
 	}
 
 	TEST_F(FixtureUsingMock, InSequence)
