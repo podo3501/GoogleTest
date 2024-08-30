@@ -275,5 +275,4 @@ namespace CookBook4
 		int result2 = foo.ActionSharingCounter_1();
 		int result3 = foo.ActionSharingCounter_2();
 	}
-
-}
+} 

@@ -104,6 +104,7 @@
     <ClCompile Include="CookBook2.cpp" />
     <ClCompile Include="CookBook3.cpp" />
     <ClCompile Include="CookBook4.cpp" />
+    <ClCompile Include="CookBook5.cpp" />
     <ClCompile Include="Introduction.cpp" />
     <ClCompile Include="MockClasses.cpp" />
     <ClCompile Include="Testsuite.cpp" />
@@ -116,6 +117,7 @@
     <ClInclude Include="CookBook2.h" />
     <ClInclude Include="CookBook3.h" />
     <ClInclude Include="CookBook4.h" />
+    <ClInclude Include="CookBook5.h" />
     <ClInclude Include="Introduction.h" />
     <ClInclude Include="MockClasses.h" />
     <ClInclude Include="Testsuite.h" />
