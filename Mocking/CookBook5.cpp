@@ -152,11 +152,13 @@ namespace CookBook5
 		check.Call("2");
 		InvokeMockFunc(mock, 3);
 	}
-
+	
 	//////////////////////////////////////////////////////////////////////
 	// 소멸자 함수를 Mocking하기. 소멸자 함수는 특수 함수이기 때문에 소멸자 함수에서 Die함수를 부른다.
 	TEST(MiscRecipes, MockingDestructors)
 	{
+		//::testing::FLAGS_gmock_verbose = "info";	//실행 스택을 추적해서 문제를 찾아낼때 사용. warning이 기본값
+
 		std::unique_ptr<MockFoo> foo = std::make_unique<MockFoo>();
 		std::unique_ptr<MockBar> bar = std::make_unique<MockBar>();
 
@@ -172,5 +174,7 @@ namespace CookBook5
 		bar->A();
 		foo.reset();	//unique_ptr을 강제적으로 지운다.
 		bar->B();
+
+		//::testing::FLAGS_gmock_verbose = "warning";	//실행 스택을 추적해서 문제를 찾아낼때 사용. warning이 기본값
 	}
 }
