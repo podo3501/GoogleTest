@@ -13,8 +13,5 @@ DB 저장 같은 작업이 실제로 실행되었는지를 확인할 수 있습�
 
 결과적으로, 일반 테스트는 "무엇을 리턴했는가?", GMock은 "무엇을 어떻게 호출했는가?"를 본다고 요약할 수 있으며, 이 둘은 병행 사용이 이상적입니다.
 
-gMock for Dummies
-https://google.github.io/googletest/gmock_for_dummies.html
-
-gMock Cookbook
-https://google.github.io/googletest/gmock_cook_book.html
+gMock for Dummies   https://google.github.io/googletest/gmock_for_dummies.html
+gMock Cookbook   https://google.github.io/googletest/gmock_cook_book.html
